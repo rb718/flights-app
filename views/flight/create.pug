@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  form(action = "/flight/new", method = "POST" class="form-inline")
+    label(for = "airline") Airline:
+    select(id="airline" name="airline" required=true)
+      option(value="American") American
+      option(value="Southwest") Southwest
+      option(value="United") United
+
+    label(for = "airport") Airport:
+    select(id="airport" name="airport" required=true)
+      option(value="AUS") AUS
+      option(value="DFW") DFW
+      option(value="DEN" selected) DEN
+      option(value="LAX") LAX
+      option(value="SAN") SAN
+
+    label(for = "flightNo") Flight No:
+    input(name = "flightNo" id = "flightNo" type="number" min=10 max=9999 required=true)
+
+    label(for = "departs") Departs:
+    input(name = "departs" id = "departs" type="datetime-local" required=true value=`${now}`)
+
+    button(type = "submit") ADD FLIGHT

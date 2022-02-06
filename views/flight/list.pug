@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  table(style="width:100%")
+    tr(style="text-align:left")
+      th Airline
+      th Airport
+      th Flight No
+      th Departure
+    if (flights)
+        each flight in flights
+          if (flight.expired)
+            tr(style="color:red")
+              td #{flight.airline}
+              td #{flight.airport}
+              td #{flight.flightNo}
+              td #{flight.departs}
+          else
+            tr
+              td #{flight.airline}
+              td #{flight.airport}
+              td #{flight.flightNo}
+              td #{flight.departs}
+    else
+      tr
+        td(colspan=4)
+          div(class="d-flex justify-content-center") No Data
+
